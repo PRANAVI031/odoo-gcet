@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HR Attendance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">HR Attendance Dashboard</div>
+
+<div class="page">
+
+    <div class="card">
+        <label>Select Date</label>
+        <input type="date" id="datePicker">
+    </div>
+
+    <div class="card">
+        <h3>Employee Attendance</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Date</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="hrTable"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+const datePicker = document.getElementById("datePicker");
+const hrTable = document.getElementById("hrTable");
+
+datePicker.valueAsDate = new Date();
+
+datePicker.onchange = () => {
+    fetch(`/admin/attendance?date=${datePicker.value}`)
+        .then(res => res.json())
+        .then(rows => {
+            hrTable.innerHTML = "";
+            rows.forEach(r => {
+                hrTable.innerHTML += `
+                    <tr>
+                        <td>${r.emp_id}</td>
+                        <td>${r.date}</td>
+                        <td>${r.check_in || "-"}</td>
+                        <td>${r.check_out || "-"}</td>
+                        <td class="status-present">${r.status}</td>
+                    </tr>
+                `;
+            });
+        });
+};
+
+datePicker.onchange();
+</script>
+
+</body>
+</html>

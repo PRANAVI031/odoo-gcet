@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(120deg, #f5f3ff, #faf5ff);
+    color: #1f2937;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(90deg, #a78bfa, #c4b5fd);
+    color: #3b0764;
+    padding: 22px 40px;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+/* PAGE CONTAINER */
+.page {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 30px;
+    box-shadow: 0 18px 40px rgba(168, 139, 250, 0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 55px rgba(168, 139, 250, 0.28);
+}
+
+/* FORM */
+label {
+    font-size: 14px;
+    color: #6b21a8;
+    margin-bottom: 6px;
+    display: block;
+}
+
+input {
+    width: 260px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #ddd6fe;
+    outline: none;
+    font-size: 14px;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.25);
+}
+
+/* BUTTONS */
+.actions {
+    margin-top: 16px;
+}
+
+button {
+    padding: 12px 22px;
+    border-radius: 12px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button.primary {
+    background: linear-gradient(135deg, #a78bfa, #c4b5fd);
+    color: #3b0764;
+    font-weight: 600;
+}
+
+button.secondary {
+    background: #ede9fe;
+    color: #5b21b6;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(167, 139, 250, 0.35);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+thead {
+    background: #ede9fe;
+}
+
+th {
+    color: #5b21b6;
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e9d5ff;
+}
+
+tbody tr:hover {
+    background: #faf5ff;
+}
+
+/* STATUS */
+.status-present {
+    color: #16a34a;
+    font-weight: 600;
+}

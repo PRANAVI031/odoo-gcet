@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Attendance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">Employee Attendance</div>
+
+<div class="page">
+
+    <div class="card">
+        <label>Employee ID</label>
+        <input id="empId" placeholder="Enter Employee ID">
+
+        <div class="actions">
+            <button class="primary" id="checkInBtn">Check In</button>
+            <button class="secondary" id="checkOutBtn">Check Out</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Your Attendance</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="attendanceData"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
