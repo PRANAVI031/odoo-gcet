@@ -54,3 +54,19 @@ Open and verify attachments directly from the system
 Approve or reject leave requests using clear action buttons
 Any action taken by the admin is reflected instantly on the employee’s Time-Off page, ensuring real-time synchronization between both sides.
 
+Dynamic Employee Dashboard
+
+After login/signup, employees are displayed on the dashboard as employee cards
+Each card shows:
+Employee name
+Role / designation
+Attendance status (present/absent – demo)
+The dashboard dynamically fetches employee data from the backend database
+My Profile Section
+Clicking on an employee navigates to the My Profile page
+The profile page displays detailed employee information such as:
+Basic personal details
+Job role and company information
+Additional sections like Resume, Private Info, Salary Info, and Security (UI ready)
+The profile layout is designed to support future dynamic data integration
+
