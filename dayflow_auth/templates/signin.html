@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invero – Login</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div style="background:#d061f2;color:white;padding:8px;border-radius:6px;margin-bottom:10px;text-align:center;">
+      {{ messages[0] }}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<div class="wrapper">
+
+    <div class="logo-area">
+        <img src="{{ url_for('static', filename='corehr_logo.png') }}" class="logo-img">
+
+
+    </div>
+
+    <div class="form-container">
+        <h2>Welcome Back</h2>
+
+        <form method="POST">
+
+            <div class="input-group">
+                <label>Login ID / Email</label>
+                <input name="identifier" type="text" placeholder="Enter your login ID" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input name="password" type="password" placeholder="Enter your password" required>
+            </div>
+
+            <button class="btn" type="submit">Login</button>
+        </form>
+
+        <p class="redirect">
+            Don't have an account?
+            <a href="{{ url_for('signup') }}">Sign Up</a>
+        </p>
+
+        <p class="redirect">
+            <a href="{{ url_for('forgot_password') }}">Forgot Password?</a>
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>

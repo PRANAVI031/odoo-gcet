@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin – Time Off</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<h2>Admin – Time Off</h2>
+
+<table>
+<tr>
+  <th>Employee</th>
+  <th>Dates</th>
+  <th>Type</th>
+  <th>Attachment</th>
+  <th>Status</th>
+  <th>Action</th>
+</tr>
+
+
+{% for l in leaves %}
+<tr>
+  <td>{{ l.employee_name }}</td>
+  <td>{{ l.start_date }} - {{ l.end_date }}</td>
+  <td>{{ l.time_off_type }}</td>
+
+  <td>
+    {% if l.attachment %}
+      <a href="/uploads/{{ l.attachment }}" target="_blank">
+        View Proof
+      </a>
+    {% else %}
+      —
+    {% endif %}
+  </td>
+
+  <td class="status {{ l.status }}">{{ l.status }}</td>
+
+  <td>
+    <button class="approve-btn" onclick="update({{l.id}}, 'Approved')">
+      Approve
+    </button>
+    <button class="reject-btn" onclick="update({{l.id}}, 'Rejected')">
+      Reject
+    </button>
+  </td>
+</tr>
+
+{% endfor %}
+</table>
+
+<script src="/static/js/admin.js"></script>
+</body>
+</html>

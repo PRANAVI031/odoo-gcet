@@ -1,0 +1,128 @@
+/* ---------- GLOBAL ---------- */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f2f2f2;
+}
+
+/* ---------- WRAPPER ---------- */
+.wrapper{
+  width:100%;
+  max-width:430px;
+  background:#fff;
+  padding:35px 30px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* ---------- LOGO AREA ---------- */
+.logo-area{
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.logo-img{
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+/* ---------- FORM CONTAINER ---------- */
+.form-container{
+  text-align:center;
+}
+
+.form-container h2{
+  margin-bottom:15px;
+  color:#333;
+}
+
+/* ---------- INPUTS ---------- */
+.input-group{
+  text-align:left;
+  margin-bottom:12px;
+}
+
+.input-group label{
+  font-size:13px;
+  color:#555;
+  display:block;
+  margin-bottom:4px;
+}
+
+.input-group input{
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  outline:none;
+  transition:0.2s;
+}
+
+.input-group input:focus{
+  border-color:#d061f2;
+  box-shadow:0 0 5px rgba(208,97,242,0.5);
+}
+
+/* ---------- BUTTON ---------- */
+.btn, button{
+  width:100%;
+  background:#d061f2;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:6px;
+  font-size:15px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.btn:hover,
+button:hover{
+  background:#b84fe0;
+}
+
+/* ---------- LINKS ---------- */
+.redirect{
+  margin-top:10px;
+  color:#555;
+}
+
+.redirect a{
+  color:#d061f2;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.redirect a:hover{
+  text-decoration:underline;
+}
+
+/* ---------- CARD SUPPORT (if used anywhere) ---------- */
+.card{
+  width:420px;
+  background:white;
+  padding:35px 30px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  text-align:center;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:450px){
+  .wrapper,
+  .card{
+    width:90%;
+    padding:25px;
+  }
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+.popup{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.6);
+  display:flex;justify-content:center;align-items:center;
+}
+.popup-box{
+  background:white;padding:25px;border-radius:12px;text-align:center;width:320px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+.popup-box h3{ margin-bottom:10px;}
+.ok-btn{
+  margin-top:12px;padding:8px 18px;border:none;border-radius:6px;
+  background:#d061f2;color:white;cursor:pointer;
+}
+
+.password-wrapper{
+  display:flex;
+  align-items:center;
+}
+.password-wrapper input{
+  width:100%;
+}
+.eye-btn{
+  margin-left:8px;
+  cursor:pointer;
+  background:#ddd;
+  padding:8px;
+  border-radius:6px;
+  border:none;
+}
+
+.error{
+  color:red;
+  font-size:13px;
+  margin-bottom:6px;
+}
+</style>
+
+</head>
+
+<body>
+
+{% if login_id %}
+<div class="popup">
+  <div class="popup-box">
+      <h3>Signup Successful 🎉</h3>
+      <p>Your Login ID is:</p>
+      <h2 style="color:#d061f2;">{{ login_id }}</h2>
+      <p>Please save it to login.</p>
+      <button class="ok-btn" onclick="window.location.href='/'">OK</button>
+  </div>
+</div>
+{% endif %}
+
+<div class="wrapper">
+<div class="form-container">
+
+<h2>Create Account</h2>
+
+<form method="POST" onsubmit="return validateForm()">
+
+    <p id="errorMessage" class="error"></p>
+
+    <div class="input-group">
+        <label>Company Name</label>
+        <input name="company" type="text" placeholder="Enter company name" required>
+    </div>
+
+    <div class="input-group">
+        <label>First Name</label>
+        <input name="first" type="text" placeholder="Enter first name" required>
+    </div>
+
+    <div class="input-group">
+        <label>Last Name</label>
+        <input name="last" type="text" placeholder="Enter last name" required>
+    </div>
+
+    <div class="input-group">
+        <label>Email ID</label>
+        <input id="email" name="email" type="email" placeholder="Enter your email ID" required>
+    </div>
+
+    <div class="input-group">
+        <label>Phone</label>
+        <input id="phone" name="phone" type="text" placeholder="Enter phone number" required>
+    </div>
+
+    <div class="input-group">
+        <label>Password</label>
+        <div class="password-wrapper">
+          <input id="password" name="password" type="password" placeholder="Create password" required>
+          <button type="button" class="eye-btn" onclick="togglePassword('password')">👁️</button>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <label>Confirm Password</label>
+        <div class="password-wrapper">
+          <input id="confirm" type="password" placeholder="Confirm password" required>
+          <button type="button" class="eye-btn" onclick="togglePassword('confirm')">👁️</button>
+        </div>
+    </div>
+
+    <button class="btn" type="submit">Sign Up</button>
+
+</form>
+
+<p class="redirect">
+Already have an account?
+<a href="/">Login</a>
+</p>
+
+</div>
+</div>
+
+<script>
+
+function togglePassword(id){
+  const input = document.getElementById(id);
+  input.type = input.type === "password" ? "text" : "password";
+}
+
+function validateForm(){
+  let email = document.getElementById("email").value;
+  let phone = document.getElementById("phone").value;
+  let password = document.getElementById("password").value;
+  let confirm = document.getElementById("confirm").value;
+  let error = document.getElementById("errorMessage");
+
+  error.innerHTML = "";
+
+  // Email Check
+  if(!email.includes("@")){
+    error.innerHTML = "Invalid Email. Must contain @";
+    return false;
+  }
+
+  // Phone Number Check
+  if(phone.length !== 10 || isNaN(phone)){
+    error.innerHTML = "Phone number must be exactly 10 digits";
+    return false;
+  }
+
+  // Password Rules
+  let upper = /[A-Z]/;
+  let number = /[0-9]/;
+  let special = /[!@#$%^&*(),.?\":{}|<>]/;
+
+  if(password.length < 7){
+    error.innerHTML = "Password must be at least 7 characters";
+    return false;
+  }
+
+  if(!upper.test(password)){
+    error.innerHTML = "Password must contain at least ONE uppercase letter";
+    return false;
+  }
+
+  if(!number.test(password)){
+    error.innerHTML = "Password must contain at least ONE number";
+    return false;
+  }
+
+  if(!special.test(password)){
+    error.innerHTML = "Password must contain at least ONE special character";
+    return false;
+  }
+
+  // Confirm Password
+  if(password !== confirm){
+    error.innerHTML = "Passwords do not match";
+    return false;
+  }
+
+  return true;
+}
+
+</script>
+
+</body>
+</html>

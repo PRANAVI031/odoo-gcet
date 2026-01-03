@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f9fafb;
+  color: #111827;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #ffffff;
+  padding: 14px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.brand {
+  color:#d061f2;
+}
+
+.nav-item {
+  font-size: 14px;
+  cursor: pointer;
+  color: #374151;
+}
+
+.nav-item.active {
+  color: #6FB3B8;
+  font-weight: 600;
+}
+
+/* RIGHT NAV */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* STATUS DOT */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e5e7eb;
+}
+
+.status-dot.present {
+  background: greenyellow;
+}
+
+.status-dot.absent {
+  background: #dc2626;
+}
+
+/* AVATAR */
+.avatar {
+  width: 32px;
+  height: 32px;
+  background: #d061f2;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* DROPDOWN */
+.time-wrapper {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 28px;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  width: 120px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #f3f4f6;
+}
+
+.hidden {
+  display: none;
+}
+
+/* CONTENT */
+.container {
+  padding: 28px;
+}
+
+/* GRID */
+.employee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.employee-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.status {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.status.present {
+  background: #e6f4f1;
+  color:green;
+}
+
+.status.absent {
+  background: #fdecec;
+  color: #dc2626;
+}
+
+.card-avatar {
+  width: 56px;
+  height: 56px;
+  background: #d061f2;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.designation {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 4px;
+}

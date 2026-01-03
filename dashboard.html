@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dayflow Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <h2 class="brand">Dayflow</h2>
+      <span class="nav-item active">Employees</span>
+      <span class="nav-item">Attendance</span>
+      <span class="nav-item">Time Off</span>
+    </div>
+
+    <div class="nav-right">
+
+      <!-- TIME ICON + DROPDOWN -->
+      <div class="time-wrapper">
+        <span class="icon" id="timeIcon">⏱</span>
+
+        <div class="dropdown hidden" id="timeDropdown">
+          <div class="dropdown-item" onclick="checkIn()">Check In</div>
+          <div class="dropdown-item" onclick="checkOut()">Check Out</div>
+        </div>
+      </div>
+
+      <!-- STATUS DOT -->
+      <span class="status-dot" id="statusDot"></span>
+
+     <a href="profile.html" class="avatar-link">
+  <div class="avatar">A</div>
+</a>
+  </nav>
+
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <div class="employee-grid">
+
+      <!-- EMPLOYEE CARD -->
+      <div class="employee-card">
+        <span class="status present">PRESENT</span>
+        <div class="card-avatar">A</div>
+        <h3 class="name">Aarav Mehta</h3>
+        <p class="designation">Frontend Developer</p>
+      </div>
+
+      <div class="employee-card">
+        <span class="status absent">ABSENT</span>
+        <div class="card-avatar">S</div>
+        <h3 class="name">Sneha Patil</h3>
+        <p class="designation">HR Executive</p>
+      </div>
+
+      <div class="employee-card">
+        <span class="status present">PRESENT</span>
+        <div class="card-avatar">R</div>
+        <h3 class="name">Rohit Sharma</h3>
+        <p class="designation">Backend Developer</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- SCRIPT -->
+  <script>
+    const timeIcon = document.getElementById("timeIcon");
+    const dropdown = document.getElementById("timeDropdown");
+    const statusDot = document.getElementById("statusDot");
+
+    timeIcon.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle("hidden");
+    });
+
+    function checkIn() {
+      statusDot.classList.remove("absent");
+      statusDot.classList.add("present");
+      dropdown.classList.add("hidden");
+    }
+
+    function checkOut() {
+      statusDot.classList.remove("present");
+      statusDot.classList.add("absent");
+      dropdown.classList.add("hidden");
+    }
+
+    document.addEventListener("click", () => {
+      dropdown.classList.add("hidden");
+    });
+  </script>
+
+</body>
+</html>

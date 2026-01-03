@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Time Off</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<h2>Time Off – {{ employee_name }}</h2>
+<button class="new-btn" onclick="openPopup()">+ New Leave</button>
+
+
+<table>
+<tr>
+  <th>Start</th><th>End</th><th>Type</th><th>Days</th><th>Status</th>
+</tr>
+{% for l in leaves %}
+<tr>
+  <td>{{l.start_date}}</td>
+  <td>{{l.end_date}}</td>
+  <td>{{l.time_off_type}}</td>
+  <td>{{l.allocation_days}}</td>
+  <td class="status {{l.status}}">{{l.status}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h3>Apply Leave</h3>
+
+    <div class="form-group">
+      <label>Employee</label>
+      <input id="employee_name" value="{{ employee_name or '' }}">
+    </div>
+
+    <div class="form-group">
+      <label>Leave Type</label>
+      <select id="time_off_type">
+        <option>Paid Time Off</option>
+        <option>Sick Leave</option>
+        <option>Unpaid Leave</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Start Date</label>
+        <input type="date" id="start_date" onchange="calculateDays()">
+      </div>
+
+      <div class="form-group">
+        <label>End Date</label>
+        <input type="date" id="end_date" onchange="calculateDays()">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Total Days</label>
+      <input id="allocation_days" readonly>
+    </div>
+
+    <div class="form-group">
+        <label>Attachment (Proof)</label>
+        <input type="file" id="attachment">
+    </div>
+
+
+
+    <div class="popup-actions">
+      <button type="button" class="btn-primary" onclick="submitLeave()">Submit</button>
+
+      <button class="btn-secondary" onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/static/js/employee.js"></script>
+</body>
+</html>
